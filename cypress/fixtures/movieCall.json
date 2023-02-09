@@ -1,0 +1,18 @@
+{
+  "Search": [
+    {
+      "Title": "kung pow",
+      "imdbID": "123123",
+      "Type": "comedy, action",
+      "Poster": "...",
+      "Year": "2004"
+    },
+    {
+      "Title": "kung pow 2",
+      "imdbID": "123124",
+      "Type": "comedy, action",
+      "Poster": "...",
+      "Year": "2005"
+    }
+  ]
+}

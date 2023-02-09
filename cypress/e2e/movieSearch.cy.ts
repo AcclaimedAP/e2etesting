@@ -1,8 +1,8 @@
 
 
 beforeEach(() => {
-        cy.visit("http://localhost:1234");
-})
+    cy.visit("/");
+});
 
 describe("Testing intended behavior on search", () => {
     it("API call should include correct movie call", () => {

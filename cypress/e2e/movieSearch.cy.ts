@@ -4,6 +4,12 @@ beforeEach(() => {
     cy.visit("/");
 });
 
+describe("lets hope the HTML is even there?", () => {
+    it("should find the input box, and the button", () => {
+        cy.get("#searchText").should("exist");
+        cy.get("#search").should("exist");
+    });
+});
 
 describe("Testing intended behavior on search", () => { // ✅
     it("API call should include correct movie call", () => {

@@ -50,3 +50,25 @@ describe("Testing if it creates all elements as we expect it to", () => { // ✅
         cy.get("img:first").should("have.attr", "alt", "kung pow");
     });
 });
+
+describe("fails to get movies", () => { // ✅
+    it("should output that it couldn't find any results if data call gives error message", () => {
+        const searchString = "abc";
+        cy.intercept("GET", "http://omdbapi.com/*", { fixture: "error" }).as("errorAPI");
+        cy.get("#searchText").type(searchString).should("have.value", searchString);
+
+        cy.get("#search").click();
+        cy.wait("@errorAPI").its("request.url").should("contain", "abc");
+        cy.get("h3").should("not.exist");
+        cy.get("div > p").should("exist");
+        cy.get("div > p").should("contain.text", "Inga sökresultat att visa");
+    });
+        it("should fail if no input", () => {
+        cy.intercept("GET", "http://omdbapi.com/*", { fixture: "error" }).as("errorAPI");
+
+        cy.get("#search").click();
+        cy.get("h3").should("not.exist");
+        cy.get("div > p").should("exist");
+        cy.get("div > p").should("contain.text", "Inga sökresultat att visa");
+    });
+});
